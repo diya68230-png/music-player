@@ -1,0 +1,340 @@
+*{
+    padding: 0;
+    margin: 0;
+    scrollbar-width: none;
+}
+body{
+        background-color: black;
+  font-family: "Montserrat", sans-serif;
+}
+/*Navbar*/
+nav{
+    background-color: black;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    height:4rem;
+    }
+    .left-half{
+        display:flex;
+        align-items: center;
+        color: blanchedalmond;
+    }
+    .logo{
+        font-size: 2.5rem;
+        margin:1rem
+    }
+    .home-icon{
+        font-size: 1.7rem;
+        background-color: #1f1f1f;
+        padding:8px;
+        border-radius: 50%;
+        margin:0.1rem;
+        transition:0.2;/*smoothness*/
+    }
+    .home-icon:hover{
+        color:white;
+        transform:scale(1.05);
+    }
+    .search-bar{
+        display: flex;
+        height:3rem;
+        width:25rem;
+        align-items: center;
+         border-radius: 20rem;
+         background-color: #1f1f1f;
+         margin: 0 1rem;
+         transition:0.2;
+
+    }
+    .search-bar:hover{
+        background-color: #2f2f2f;
+        border: 1px solid rgb(116,116,116);
+    }
+    .search-icon{
+        font-size:1.5rem;
+        padding:0 0.7rem;
+        margin:0.1rem;
+    }
+    .folders{
+        font-size:1.75rem;
+        padding:6px;
+        margin:0.1rem;
+        align-items:right;
+    }
+    .input-box{
+        width:78rem;
+        height:60%;
+        border: solid #1f1f1f;
+background-color: #1f1f1f;
+        font-size: medium;
+        color:blanchedalmond;
+        border-right: 1px solid rgb(179,179,179);
+        
+    }
+    .right-half{
+        display:flex;
+        color:blanchedalmond;
+        align-items: center;
+        width:50%;
+    }
+    .right-halfp1{
+        display:flex;
+        align-items: center;
+        margin:0.1rem;
+        border-right:1px solid #343333;
+        height: 1.7rem;
+        padding: 0 1rem 0 0;
+
+    }
+    .right-halfp1 p{
+        margin:0.8rem;
+        font-weight: 500;
+    }
+    .right-halfp1 p:hover{
+        color:#666565;
+        cursor:pointer;
+    }
+    .right-halfp2{
+         display:flex;
+        align-items: center;
+        margin:0.1rem;
+        padding:0 1rem 0 0;
+    }
+    .install{
+        margin:0.7rem;
+        font-weight: 500;
+    }
+    .install:hover{
+         color:#666565;
+        cursor:pointer;
+    }
+    .sign-up{
+        margin:0.8rem; 
+      font-weight: 500;
+
+    }
+    .sign-up:hover{
+         color:#666565;
+        cursor:pointer;
+    }
+    .login{
+        margin:0.5rem;
+        border-radius: 15rem;
+        height:2.5rem;
+        width:5.5rem;
+        background-color: white;
+        border:none;
+        font-size: 1rem;
+        font-weight: 700;
+        transition:0.2; 
+    }
+    .login:hover{
+        cursor:pointer;
+        transform:scale(1.05);
+        }
+        /*Main-left*/
+.main{
+    background-color: black;
+    min-width: 98vw;
+    height: 74.5vh;
+    margin-top: 2vh;
+    display:flex;
+    justify-content: space-around;
+}
+.main-left{
+    width:27%;
+    height:100%;
+    background-color: #121212;
+    border-radius: 10px;
+}
+.main-right{
+    width:72%;
+    height:100%;
+    background-color: #121212;
+        border-radius: 10px;
+        color:blanchedalmond;
+        overflow: auto;
+        scrollbar-width:none;
+}
+.library{
+    display:flex;
+    color:rgb(178, 178, 178);
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 1.5rem;
+}
+.library p{
+      font-weight: 600;
+}
+.library div{
+    width:1.5rem;
+    height: 1.5rem;
+    background-color: #343333;
+    border-radius: 30rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size:2rem;
+    padding: 8px;
+}
+.library div:hover{
+    color:white;
+    background-color: #4d4d4d;
+}
+.boxcontainer{
+    margin-top:1rem;
+    height:100%;
+}
+.box{
+    background-color: #1f1f1f;
+    height: 22%;
+    width: 98%;
+        border-radius: 10px;
+    margin: 1rem 0;
+}
+.box h4{
+    font-weight: 600;
+    font:0.9rem;
+    padding:1.3rem 0 0.5rem 1rem;
+    color:blanchedalmond;
+}
+.box p{
+    font-size:0.8rem;
+    padding-left:1rem;
+    color:rgb(246, 231, 207);
+}
+.box button{
+    background-color: rgb(254, 238, 238);
+    color:black;
+    font-weight: 600;
+    padding: 0.35rem 0.65rem;
+    margin: 0.5rem 1rem 0 1rem;
+    border-radius: 25rem;
+    border:none;
+    transition:0.2;
+}
+
+.box button:hover{
+        transform:scale(1.05)
+}
+.music-card img{
+    height: 10rem;
+    width: 10rem;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+}
+.music-card{
+    width:10rem;
+    padding:0.7rem;
+    border-radius: 5px;
+    position:relative;
+}
+.music-card:hover{
+    background-color: #222;
+}
+.music-section{
+    margin:2rem 0 2rem 2rem;
+}
+.songs{
+    margin:1.5rem 0;
+    display:flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.img-title{
+
+    margin: 0.7rem 0;
+}
+.img-description{
+    font-size:0.8rem;
+    color:rgb(226, 231, 207);
+
+}
+.play-button{
+    color:rgb(32,234,32);
+    font-size: 2.7rem;
+    position:absolute;
+    background-color: black;
+    display:flex;
+    width:2.6rem;
+    border-radius:25rem;
+    transform: translate(110px,-40px);
+opacity: 0;
+    transition: 0.2s;
+}
+.music-card:hover .play-button{
+    opacity:1;
+        transform: translate(110px,-50px);
+
+}
+/*player*/
+.player-bar{
+    display:flex;
+    width:100%;
+    height:5rem;
+    margin: 0.2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.music-bar{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.player-bar img{
+    width:4rem;
+    height:4rem;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    padding:0.3rem;
+}
+.player{
+    display:flex;
+    align-items: center;
+}
+.player-btns{
+    font-size: 1.1rem;
+    margin: 0.4rem 1rem;
+    color:rgb(180, 180, 180);
+    cursor:pointer;
+}
+.player-btns:hover{
+    color:rgb(232,232,232);
+    transform: scale(1.02);
+}
+#play{
+    color:white;
+    font-size: 2.3rem;
+}
+#progressbar{
+    appearance: none;
+    width:600px;
+    height:3px;
+    background-color: #333;
+    border-radius: 5px;
+    cursor:pointer;
+}
+input[type='range']::-webkit-slider-thumb{
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+.imginfo{
+    display: flex;
+}
+.img-titleinfo{
+    font-size: 0.9rem;
+    color:blanchedalmond;
+    margin-left: 1rem;
+}
+.img-desinfo{
+    font-size:0.8rem ;
+    color:rgb(206,206,206);
+        margin-left: 1rem;
+
+}
