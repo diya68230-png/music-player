@@ -1,6 +1,6 @@
 let play =document.getElementById('play');
 let progressbar =document.getElementById('progressbar');
-let audio = new Audio('Audio/2.mp3');
+let audio = new Audio('Audio/1.mp3');
 play.addEventListener('click',() => {
     if(audio.paused || audio.currentTime == 0){
         audio.play();
@@ -30,20 +30,22 @@ let playmusic= Array.from(document.getElementsByClassName('playmusic'));
 
 makeAllPlay = () => {
     playmusic.forEach((element) =>{
-    element.target.classList.remove('fa-circle-pause');
-    element.target.classList.add('fa-circle-play');   
+    element.classList.remove('fa-circle-pause');
+    element.classList.add('fa-circle-play');   
     })
 }
 
 playmusic.forEach((element) =>{
   element.addEventListener('click', (e) =>{
+    makeAllPlay();
     e.target.classList.remove('fa-circle-play');
     e.target.classList.add('fa-circle-pause');
+    play.classList.remove('fa-circle-play');
+    play.classList.add('fa-circle-pause');
 
     index = parseInt(e.target.id);
-    console.log(index);
-    audio.src = `Audio/${index}2.mp3`;
+    audio.src = `Audio/${index}.mp3`;
     audio.currentTime = 0;
-
+    audio.play();
 })
 }) 
