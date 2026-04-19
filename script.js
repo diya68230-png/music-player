@@ -52,6 +52,45 @@ playmusic.forEach((element) =>{
 })
 });
 
+let allMusic = Array.from(document.getElementsByClassName('music-card'));
+
+songs = [
+    {songName:'Song1',songDes: 'This is description of song 1', Songimg:'images/4.jfif', songPath: 'Audio/1.mp3'},
+    {songName:'Song2',songDes: 'This is description of song 2', Songimg:'images/1.jfif', songPath: 'Audio/2.mp3'},
+    {songName:'Song3',songDes: 'This is description of song 3', Songimg:'images/2.jfif', songPath: 'Audio/3.mp3'},        {songName:'Song1',songDes: 'This is description of song 1', Songimg:'images/4.jfif', songPath: 'Audio/1.mp3'},
+    {songName:'Song4',songDes: 'This is description of song 4', Songimg:'images/3.jfif', songPath: 'Audio/4.mp3'},
+    {songName:'Song5',songDes: 'This is description of song 5', Songimg:'images/1.jfif', songPath: 'Audio/5.mp3'},
+    {songName:'Song6',songDes: 'This is description of song 6', Songimg:'images/2.jfif', songPath: 'Audio/6.mp3'},
+    {songName:'Song7',songDes: 'This is description of song 7', Songimg:'images/4.jfif', songPath: 'Audio/7.mp3'},
+    {songName:'Song8',songDes: 'This is description of song 8', Songimg:'images/4.jfif', songPath: 'Audio/8.mp3'},
+    {songName:'Song9',songDes: 'This is description of song 9', Songimg:'images/1.jfif', songPath: 'Audio/9.mp3'},
+    {songName:'Song10',songDes: 'This is description of song 10', Songimg:'images/2.jfif', songPath: 'Audio/10.mp3'},
+    {songName:'Song11',songDes: 'This is description of song 11', Songimg:'images/3.jfif', songPath: 'Audio/11.mp3'},
+    {songName:'Song12',songDes: 'This is description of song 12', Songimg:'images/1.jfif', songPath: 'Audio/12.mp3'},
+    {songName:'Song13',songDes: 'This is description of song 13', Songimg:'images/2.jfif', songPath: 'Audio/13.mp3'},
+    {songName:'Song14',songDes: 'This is description of song 14', Songimg:'images/4.jfif', songPath: 'Audio/14.mp3'},
+    {songName:'Song15',songDes: 'This is description of song 15', Songimg:'images/4.jfif', songPath: 'Audio/15.mp3'},
+    {songName:'Song16',songDes: 'This is description of song 16', Songimg:'images/1.jfif', songPath: 'Audio/16.mp3'},
+    {songName:'Song17',songDes: 'This is description of song 17', Songimg:'images/2.jfif', songPath: 'Audio/17.mp3'},
+    {songName:'Song18',songDes: 'This is description of song 18', Songimg:'images/3.jfif', songPath: 'Audio/18.mp3'},
+    {songName:'Song19',songDes: 'This is description of song 19', Songimg:'images/1.jfif', songPath: 'Audio/19.mp3'},
+    {songName:'Song20',songDes: 'This is description of song 20', Songimg:'images/2.jfif', songPath: 'Audio/20.mp3'},
+    {songName:'Song21',songDes: 'This is description of song 21', Songimg:'images/4.jfif', songPath: 'Audio/21.mp3'},
+    {songName:'Song22',songDes: 'This is description of song 22', Songimg:'images/4.jfif', songPath: 'Audio/22.mp3'},
+    {songName:'Song23',songDes: 'This is description of song 23', Songimg:'images/1.jfif', songPath: 'Audio/23.mp3'},
+    {songName:'Song24',songDes: 'This is description of song 24', Songimg:'images/2.jfif', songPath: 'Audio/24.mp3'},
+    {songName:'Song25',songDes: 'This is description of song 25', Songimg:'images/3.jfif', songPath: 'Audio/25.mp3'},
+    {songName:'Song26',songDes: 'This is description of song 26', Songimg:'images/1.jfif', songPath: 'Audio/26.mp3'},
+    {songName:'Song27',songDes: 'This is description of song 27', Songimg:'images/2.jfif', songPath: 'Audio/27.mp3'},
+    {songName:'Song28',songDes: 'This is description of song 28', Songimg:'images/4.jfif', songPath: 'Audio/28.mp3'},
+    {songName:'Song29',songDes: 'This is description of song 29', Songimg:'images/4.jfif', songPath: 'Audio/29.mp3'}
+]
+
+allMusic.forEach((element,i) =>{
+element.getElementsByTagName('img')[0].src=songs[i].Songimg;
+element.getElementsByClassName('img-title')[0].innerHTML=songs[i].songName;
+element.getElementsByClassName('img-description')[0].innerText=songs[i].songDes;
+});
 playNextSong = () => {
     let nextSong = (currentSong+1)%playmusic.length;
     currentSong = nextSong == 0 ? 29 :nextSong;
