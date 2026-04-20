@@ -25,7 +25,7 @@ progressbar.addEventListener('input',function() {
     let value = this.value;
     this.style.background =`linear-gradient(to right, #00920c ${value}% , #333 ${value}%)`;
     audio.currentTime = (progressbar.value*audio.duration)/100;
-})
+});
 
 let playmusic= Array.from(document.getElementsByClassName('playmusic'));
 
@@ -57,7 +57,7 @@ let allMusic = Array.from(document.getElementsByClassName('music-card'));
 songs = [
     {songName:'Song1',songDes: 'This is description of song 1', Songimg:'images/4.jfif', songPath: 'Audio/1.mp3'},
     {songName:'Song2',songDes: 'This is description of song 2', Songimg:'images/1.jfif', songPath: 'Audio/2.mp3'},
-    {songName:'Song3',songDes: 'This is description of song 3', Songimg:'images/2.jfif', songPath: 'Audio/3.mp3'},        {songName:'Song1',songDes: 'This is description of song 1', Songimg:'images/4.jfif', songPath: 'Audio/1.mp3'},
+    {songName:'Song3',songDes: 'This is description of song 3', Songimg:'images/2.jfif', songPath: 'Audio/3.mp3'},       
     {songName:'Song4',songDes: 'This is description of song 4', Songimg:'images/3.jfif', songPath: 'Audio/4.mp3'},
     {songName:'Song5',songDes: 'This is description of song 5', Songimg:'images/1.jfif', songPath: 'Audio/5.mp3'},
     {songName:'Song6',songDes: 'This is description of song 6', Songimg:'images/2.jfif', songPath: 'Audio/6.mp3'},
@@ -91,6 +91,42 @@ element.getElementsByTagName('img')[0].src=songs[i].Songimg;
 element.getElementsByClassName('img-title')[0].innerHTML=songs[i].songName;
 element.getElementsByClassName('img-description')[0].innerText=songs[i].songDes;
 });
+
+let shuffle =document.getElementById('shuffle');
+let repeat = document.getElementById('repeat');
+let nowBar = document.querySelector('.now-bar');
+
+let songOnRepeat=false;
+let songOnShuffle=false;
+
+function shuffleSongs(originalOrder){
+    order= {...originalOrder};
+    for(i=order.length-1;i>0;i--){
+        let j= Math.floor((Math.random)*(i+1));
+       [ order[i],order[j]] = [order[j],order[i]];
+    
+    }   
+    return order;
+}
+shuffle.addEventListener('click',() => {
+    if(!songOnShuffle){
+        songOnShuffle=true;
+        shuffle.classList.add('active');
+    }else{
+        songOnShuffle=false;
+        shuffle.classList.remove('active');
+    }
+})
+
+repeat.addEventListener('click',() => {
+    if(!songOnRepeat){
+        songOnRepeat=true;
+        repeat.classList.add('active');
+    }else{
+        songOnRepeat=false;
+        repeat.classList.remove('active');
+    }
+})
 playNextSong = () => {
     let nextSong = (currentSong+1)%playmusic.length;
     currentSong = nextSong == 0 ? 29 :nextSong;
