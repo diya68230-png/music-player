@@ -111,6 +111,7 @@ function shuffleSongs(originalOrder){
 shuffle.addEventListener('click',() => {
     if(!songOnShuffle){
         songOnShuffle=true;
+        songOnRepeat=false;
         shuffle.classList.add('active');
     }else{
         songOnShuffle=false;
@@ -121,7 +122,8 @@ shuffle.addEventListener('click',() => {
 repeat.addEventListener('click',() => {
     if(!songOnRepeat){
         songOnRepeat=true;
-        repeat.classList.add('active');
+        songOnShuffle=false;
+        repeat.classList.add('active');  
     }else{
         songOnRepeat=false;
         repeat.classList.remove('active');
