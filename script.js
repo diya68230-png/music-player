@@ -113,9 +113,13 @@ shuffle.addEventListener('click',() => {
         songOnShuffle=true;
         songOnRepeat=false;
         shuffle.classList.add('active');
+        repeat.classList.remove('active');
+
+        order=shuffleSongs(songs);
     }else{
         songOnShuffle=false;
         shuffle.classList.remove('active');
+        order=songs;
     }
 })
 
@@ -123,18 +127,26 @@ repeat.addEventListener('click',() => {
     if(!songOnRepeat){
         songOnRepeat=true;
         songOnShuffle=false;
-        repeat.classList.add('active');  
+        repeat.classList.add('active'); 
+        shuffle.classList.remove('active'); 
     }else{
         songOnRepeat=false;
         repeat.classList.remove('active');
     }
 })
 playNextSong = () => {
+    if(!songOnRepeat){
     let nextSong = (currentSong+1)%playmusic.length;
     currentSong = nextSong == 0 ? 29 :nextSong;
-    audio.src = `Audio/${currentSong}.mp3`;
+    audio.src = order[currentSong-1].songPath;
     audio.currentTime=0;
     audio.play();
+    }else{
+    audio.src = order[currentSong-1].songPath;
+    audio.currentTime=0;
+    audio.play(); 
+    }
+    
 }
 playPrevSong = () =>{
    let PrevSong = (currentSong-1);
