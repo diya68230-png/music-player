@@ -284,8 +284,8 @@ opacity: 0;
     align-items: center;
 }
 .player-bar img{
-    width:4rem;
-    height:4rem;
+    width:3.5rem;
+    height:3.5rem;
     object-fit: cover;
     object-position: center;
     border-radius: 10px;

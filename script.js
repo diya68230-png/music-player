@@ -85,6 +85,7 @@ songs = [
     {songName:'Song28',songDes: 'This is description of song 28', Songimg:'images/4.jfif', songPath: 'Audio/28.mp3'},
     {songName:'Song29',songDes: 'This is description of song 29', Songimg:'images/4.jfif', songPath: 'Audio/29.mp3'}
 ]
+order=[...songs];
 
 allMusic.forEach((element,i) =>{
 element.getElementsByTagName('img')[0].src=songs[i].Songimg;
@@ -149,11 +150,17 @@ playNextSong = () => {
     
 }
 playPrevSong = () =>{
-   let PrevSong = (currentSong-1);
+  if(!songOnRepeat){
+     let PrevSong = (currentSong-1);
     currentSong = PrevSong == 0 ? 29 :PrevSong;
-    audio.src = `Audio/${currentSong}.mp3`;
+    audio.src = order[currentSong-1].songPath;
+    audio.currentTime=0;
+    audio.play();
+}else{
+    audio.src = order[currentSong-1].songPath;
     audio.currentTime=0;
     audio.play(); 
+}
 }
 
 forward= document.getElementById('forward');
