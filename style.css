@@ -284,8 +284,8 @@ opacity: 0;
     align-items: center;
 }
 .player-bar img{
-    width:3.5rem;
-    height:3.5rem;
+    width:4rem;
+    height:4rem;
     object-fit: cover;
     object-position: center;
     border-radius: 10px;
@@ -324,18 +324,23 @@ input[type='range']::-webkit-slider-thumb{
     background-color: white;
     border-radius: 10px;
 }
-.imginfo{
+.now-bar{
     display: flex;
+
 }
 .img-titleinfo{
     font-size: 0.9rem;
-    color:blanchedalmond;
+    color:rgb(249, 234, 212);
     margin-left: 1rem;
+    margin-top: 1rem;;
+    align-items: center;
 }
 .img-desinfo{
     font-size:0.8rem ;
     color:rgb(206,206,206);
         margin-left: 1rem;
+        margin-bottom: 1rem;
+        align-items: center;
 
 }
 .active{

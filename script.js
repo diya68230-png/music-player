@@ -49,6 +49,7 @@ playmusic.forEach((element) =>{
     audio.src = `Audio/${index}.mp3`;
     audio.currentTime = 0;
     audio.play();
+    updateNowBar();
 })
 });
 
@@ -142,10 +143,12 @@ playNextSong = () => {
     audio.src = order[currentSong-1].songPath;
     audio.currentTime=0;
     audio.play();
+    updateNowBar();
     }else{
     audio.src = order[currentSong-1].songPath;
     audio.currentTime=0;
-    audio.play(); 
+    audio.play();
+    updateNowBar(); 
     }
     
 }
@@ -156,11 +159,20 @@ playPrevSong = () =>{
     audio.src = order[currentSong-1].songPath;
     audio.currentTime=0;
     audio.play();
+    updateNowBar();
 }else{
     audio.src = order[currentSong-1].songPath;
     audio.currentTime=0;
     audio.play(); 
+    updateNowBar();
 }
+}
+
+
+function updateNowBar () {
+nowBar.getElementsByTagName('img')[0].src=order[currentSong-1].Songimg;
+nowBar.getElementsByClassName('img-titleinfo')[0].innerText=order[currentSong-1].songName;
+nowBar.getElementsByClassName('img-desinfo')[0].innerText=order[currentSong-1].songDes;
 }
 
 forward= document.getElementById('forward');
