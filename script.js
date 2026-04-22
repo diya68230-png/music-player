@@ -36,22 +36,28 @@ makeAllPlay = () => {
     })
 }
 
-playmusic.forEach((element) =>{
-  element.addEventListener('click', (e) =>{
+playmusic.forEach((element, i) => {
+  element.addEventListener('click', () => {
+
     makeAllPlay();
-    e.target.classList.remove('fa-circle-play');
-    e.target.classList.add('fa-circle-pause');
+
+    let index = i + 1; // ALWAYS correct
+
+    let songPath = songs[index - 1].songPath;
+    currentSong = order.findIndex(s => s.songPath === songPath) + 1;
+
+    audio.src = order[currentSong - 1].songPath;
+    audio.currentTime = 0;
+    audio.play();
+
+    element.classList.remove('fa-circle-play');
+    element.classList.add('fa-circle-pause');
+
     play.classList.remove('fa-circle-play');
     play.classList.add('fa-circle-pause');
 
-    index = parseInt(e.target.id);
-    currentSong= index;
-    audio.src = `Audio/${index}.mp3`;
-    audio.currentTime = 0;
-    audio.play();
     updateNowBar();
-    
-})
+  });
 });
 
 let allMusic = Array.from(document.getElementsByClassName('music-card'));
