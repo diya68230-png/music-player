@@ -50,6 +50,7 @@ playmusic.forEach((element) =>{
     audio.currentTime = 0;
     audio.play();
     updateNowBar();
+    
 })
 });
 
@@ -83,8 +84,8 @@ songs = [
     {songName:'Song25',songDes: 'This is description of song 25', Songimg:'images/3.jfif', songPath: 'Audio/25.mp3'},
     {songName:'Song26',songDes: 'This is description of song 26', Songimg:'images/1.jfif', songPath: 'Audio/26.mp3'},
     {songName:'Song27',songDes: 'This is description of song 27', Songimg:'images/2.jfif', songPath: 'Audio/27.mp3'},
-    {songName:'Song28',songDes: 'This is description of song 28', Songimg:'images/4.jfif', songPath: 'Audio/28.mp3'},
-    {songName:'Song29',songDes: 'This is description of song 29', Songimg:'images/4.jfif', songPath: 'Audio/29.mp3'}
+    {songName:'Song28',songDes: 'This is description of song 28', Songimg:'images/4.jfif', songPath: 'Audio/28.mp3'}
+
 ]
 order=[...songs];
 
@@ -102,26 +103,38 @@ let songOnRepeat=false;
 let songOnShuffle=false;
 
 function shuffleSongs(originalOrder){
-    order= {...originalOrder};
-    for(i=order.length-1;i>0;i--){
-        let j= Math.floor((Math.random)*(i+1));
-       [ order[i],order[j]] = [order[j],order[i]];
-    
-    }   
-    return order;
+      let shuffled = [...originalOrder];  
+    for(let i = shuffled.length - 1; i > 0; i--){
+        let j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
 }
 shuffle.addEventListener('click',() => {
-    if(!songOnShuffle){
-        songOnShuffle=true;
-        songOnRepeat=false;
+     if(!songOnShuffle){
+        songOnShuffle = true;
+        songOnRepeat = false;
         shuffle.classList.add('active');
         repeat.classList.remove('active');
+        order = shuffleSongs(songs);
+        currentSong = 1;
+        audio.src = order[currentSong-1].songPath;
+        audio.currentTime = 0;
+        audio.play();
+        updateNowBar();
 
-        order=shuffleSongs(songs);
-    }else{
-        songOnShuffle=false;
+    } else {
+        songOnShuffle = false;
         shuffle.classList.remove('active');
-        order=songs;
+
+        order = [...songs];
+
+        currentSong = 1;
+
+        audio.src = order[currentSong-1].songPath;
+        audio.currentTime = 0;
+        audio.play();
+        updateNowBar();
     }
 })
 
@@ -139,7 +152,7 @@ repeat.addEventListener('click',() => {
 playNextSong = () => {
     if(!songOnRepeat){
     let nextSong = (currentSong+1)%playmusic.length;
-    currentSong = nextSong == 0 ? 29 :nextSong;
+    currentSong = nextSong == 0 ? 28 :nextSong;
     audio.src = order[currentSong-1].songPath;
     audio.currentTime=0;
     audio.play();
@@ -155,7 +168,7 @@ playNextSong = () => {
 playPrevSong = () =>{
   if(!songOnRepeat){
      let PrevSong = (currentSong-1);
-    currentSong = PrevSong == 0 ? 29 :PrevSong;
+    currentSong = PrevSong == 0 ? 28 :PrevSong;
     audio.src = order[currentSong-1].songPath;
     audio.currentTime=0;
     audio.play();
