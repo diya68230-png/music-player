@@ -206,3 +206,9 @@ audio.addEventListener('ended', () =>{
 backward.addEventListener('click',() => {
     playPrevSong();
 })
+let queue = [];
+if(queue.length > 0){
+   audio.src = queue.shift().songPath;
+} else {
+   playNextSong();
+}
